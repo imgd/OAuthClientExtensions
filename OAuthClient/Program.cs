@@ -12,7 +12,7 @@ namespace ConsoleApp1
         {
             OAuthClientExtensions.Init("dfsaf", "http://192.168.1.1//");
             string url = "api/get/1";
-            var a = url.M5_APIGet<string>();
+            var a = url.M5_APIPost<string>(new { a = 1 });
         }
     }
 }

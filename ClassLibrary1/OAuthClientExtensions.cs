@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Web;
 using System.Web.Caching;
 using ClassLibrary1;
 
@@ -16,7 +17,7 @@ namespace Galaxy.Mercury.OAuthClient
         //这里请初始化配置参数，或调用Init方法初始化       
         private static string _appSercet = "";
         private static string _oauthDomain = "";
-        private static Cache _sercetAndToken = new Cache();
+        private static Cache _sercetAndToken = HttpRuntime.Cache;
 
 
         /// <summary>
@@ -45,19 +46,20 @@ namespace Galaxy.Mercury.OAuthClient
              });
         }
 
+
         /// <summary>
         /// POST方式业务调用
         /// </summary>
         /// <typeparam name="T">返回Result.data 对象类型</typeparam>
         /// <param name="apiRoute">请求路由</param>
-        /// <param name="paras">post json字符串参数</param>
+        /// <param name="paras">请求参数匿名类对象</param>
         /// <returns>Result<T></returns>
-        public static Result<T> M5_APIPost<T>(this string apiRoute, string paras = "")
+        public static Result<T> M5_APIPost<T>(this string apiRoute, object paras = null)
         {
             return apiRoute.APITryPost<T>((token, route, arguments) =>
             {
                 return route.OAuthPost<T>(arguments, token);
-            }, paras);
+            }, paras.M5_ObjectToJson());
         }
 
 
@@ -159,7 +161,10 @@ namespace Galaxy.Mercury.OAuthClient
                 return cacheToken.ToString();
             }
 
-            Result<OAuthToken> responseResult = $"{_oauthDomain}api/oauth/Token/Create?sercet={_appSercet}".Get<OAuthToken>();
+            Result<OAuthToken> responseResult = $"{_oauthDomain}api/oauth/Token/Create".Post<OAuthToken>(new
+            {
+                sercet = _appSercet
+            });
 
             //token获取失败
             if (!responseResult.code.IsSuccessed() ||
@@ -243,12 +248,12 @@ namespace Galaxy.Mercury.OAuthClient
             }
 
         }
-        public static Result<T> Post<T>(this string url, string postJsonData)
+        public static Result<T> Post<T>(this string url, object postJsonData)
         {
             try
             {
                 WebClient client = BuildWebClient();
-                byte[] bytes = Encoding.UTF8.GetBytes(postJsonData);
+                byte[] bytes = Encoding.UTF8.GetBytes(postJsonData.M5_ObjectToJson());
                 Encoding enc = Encoding.GetEncoding("UTF-8");
                 byte[] responseData = client.UploadData(url, "POST", bytes);
                 return enc.GetString(responseData).M5_JsonToObject<Result<T>>();
@@ -273,12 +278,28 @@ namespace Galaxy.Mercury.OAuthClient
                 return new Result<T>(0, $"请求异常:{ex.Message}");
             }
         }
-        public static Result<T> OAuthPost<T>(this string url, string postJsonData, string token)
+        public static Result<T> OAuthPost<T>(this string url, object postJsonData, string token)
         {
             try
             {
                 WebClient client = BuildOAuthWebClient(token);
-                byte[] bytes = Encoding.UTF8.GetBytes(postJsonData);
+                byte[] bytes = Encoding.UTF8.GetBytes(postJsonData.M5_ObjectToJson());
+                Encoding enc = Encoding.GetEncoding("UTF-8");
+                byte[] responseData = client.UploadData(url, "POST", bytes);
+                return enc.GetString(responseData).M5_JsonToObject<Result<T>>();
+            }
+            catch (Exception ex)
+            {
+                //日志记录
+                return new Result<T>(0, $"请求异常:{ex.Message}");
+            }
+        }
+        public static Result<T> OAuthPost<T, TParas>(this string url, TParas postJsonData, string token)
+        {
+            try
+            {
+                WebClient client = BuildOAuthWebClient(token);
+                byte[] bytes = Encoding.UTF8.GetBytes(postJsonData.M5_ObjectToJson());
                 Encoding enc = Encoding.GetEncoding("UTF-8");
                 byte[] responseData = client.UploadData(url, "POST", bytes);
                 return enc.GetString(responseData).M5_JsonToObject<Result<T>>();
