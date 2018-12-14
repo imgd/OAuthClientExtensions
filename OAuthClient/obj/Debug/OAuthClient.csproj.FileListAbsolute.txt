@@ -1,0 +1,13 @@
+C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\obj\Debug\OAuthClient.csprojAssemblyReference.cache
+C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\obj\Debug\OAuthClient.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\bin\Debug\OAuthClient.exe.config
+C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\bin\Debug\OAuthClient.exe
+C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\bin\Debug\OAuthClient.pdb
+C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\bin\Debug\ClassLibrary1.dll
+C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\bin\Debug\ClassLibrary1.pdb
+C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\obj\Debug\OAuthClient.csproj.CopyComplete
+C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\obj\Debug\OAuthClient.exe
+C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\obj\Debug\OAuthClient.pdb

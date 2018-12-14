@@ -1,0 +1,9 @@
+C:\Users\Administrator\source\repos\OAuthClient\ClassLibrary1\obj\Debug\ClassLibrary1.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\OAuthClient\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\Administrator\source\repos\OAuthClient\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Administrator\source\repos\OAuthClient\ClassLibrary1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\source\repos\OAuthClient\ClassLibrary1\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Administrator\source\repos\OAuthClient\ClassLibrary1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\source\repos\OAuthClient\ClassLibrary1\obj\Debug\ClassLibrary1.csproj.CopyComplete
+C:\Users\Administrator\source\repos\OAuthClient\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\Administrator\source\repos\OAuthClient\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
