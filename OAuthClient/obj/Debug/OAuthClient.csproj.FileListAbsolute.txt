@@ -11,3 +11,16 @@ C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\bin\Debug\Newtonsoft
 C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\obj\Debug\OAuthClient.csproj.CopyComplete
 C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\obj\Debug\OAuthClient.exe
 C:\Users\Administrator\source\repos\OAuthClient\OAuthClient\obj\Debug\OAuthClient.pdb
+F:\github\OAuthClientExtensions\OAuthClient\bin\Debug\OAuthClient.exe.config
+F:\github\OAuthClientExtensions\OAuthClient\bin\Debug\OAuthClient.exe
+F:\github\OAuthClientExtensions\OAuthClient\bin\Debug\OAuthClient.pdb
+F:\github\OAuthClientExtensions\OAuthClient\bin\Debug\ClassLibrary1.dll
+F:\github\OAuthClientExtensions\OAuthClient\bin\Debug\Newtonsoft.Json.dll
+F:\github\OAuthClientExtensions\OAuthClient\bin\Debug\ClassLibrary1.pdb
+F:\github\OAuthClientExtensions\OAuthClient\bin\Debug\Newtonsoft.Json.pdb
+F:\github\OAuthClientExtensions\OAuthClient\bin\Debug\Newtonsoft.Json.xml
+F:\github\OAuthClientExtensions\OAuthClient\obj\Debug\OAuthClient.csprojAssemblyReference.cache
+F:\github\OAuthClientExtensions\OAuthClient\obj\Debug\OAuthClient.csproj.CoreCompileInputs.cache
+F:\github\OAuthClientExtensions\OAuthClient\obj\Debug\OAuthClient.csproj.CopyComplete
+F:\github\OAuthClientExtensions\OAuthClient\obj\Debug\OAuthClient.exe
+F:\github\OAuthClientExtensions\OAuthClient\obj\Debug\OAuthClient.pdb

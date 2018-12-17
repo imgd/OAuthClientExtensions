@@ -7,3 +7,13 @@ C:\Users\Administrator\source\repos\OAuthClient\ClassLibrary1\bin\Debug\Newtonso
 C:\Users\Administrator\source\repos\OAuthClient\ClassLibrary1\obj\Debug\ClassLibrary1.csproj.CopyComplete
 C:\Users\Administrator\source\repos\OAuthClient\ClassLibrary1\obj\Debug\ClassLibrary1.dll
 C:\Users\Administrator\source\repos\OAuthClient\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+F:\github\OAuthClientExtensions\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+F:\github\OAuthClientExtensions\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+F:\github\OAuthClientExtensions\ClassLibrary1\bin\Debug\Newtonsoft.Json.dll
+F:\github\OAuthClientExtensions\ClassLibrary1\bin\Debug\Newtonsoft.Json.pdb
+F:\github\OAuthClientExtensions\ClassLibrary1\bin\Debug\Newtonsoft.Json.xml
+F:\github\OAuthClientExtensions\ClassLibrary1\obj\Debug\ClassLibrary1.csprojAssemblyReference.cache
+F:\github\OAuthClientExtensions\ClassLibrary1\obj\Debug\ClassLibrary1.csproj.CoreCompileInputs.cache
+F:\github\OAuthClientExtensions\ClassLibrary1\obj\Debug\ClassLibrary1.csproj.CopyComplete
+F:\github\OAuthClientExtensions\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+F:\github\OAuthClientExtensions\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
