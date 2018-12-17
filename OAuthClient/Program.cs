@@ -102,7 +102,7 @@ namespace ConsoleApp1
             foreach (var item in paras)
             {
                 string key = item.Name;
-                string value = (string)item.GetValue(arguments);
+                string value = TryParseString(item.GetValue(arguments));
                 urlParas.AppendFormat("&{0}={1}", key, value);
             }
 
@@ -114,6 +114,20 @@ namespace ConsoleApp1
             }
 
             return route + urlParas.ToString();
+        }
+
+        /// <summary>
+        /// object转换string
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        private string TryParseString(object val)
+        {
+            if (val == null)
+            {
+                return string.Empty;
+            }
+            return val.ToString();
         }
     }
 
