@@ -7,14 +7,38 @@ using System.Text;
 
 namespace ConsoleApp1
 {
+    /// <summary>
+    /// rbac登陆输入实体
+    /// </summary>
+    public class RbacLogin
+    {
+        /// <summary>
+        /// 账号
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 密码
+        /// </summary>
+        public string Password { get; set; }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            OAuthClientExtensions.Init("dfsaf", "http://192.168.1.1//");
+            OAuthClientExtensions.Init("sasdfdj32%dk&dsk", "http://192.168.1.1//");
 
-            var rbacLoginResult = API.RbacLogin.Request(new { name = "admin", pwd = "123" });
-            var ssoLoginResult = API.SSOLogin.Request(new { unionid = "1" });
+            var rbacLoginResult = API.RbacLogin.Request(new RbacLogin
+            {
+                Name = "admin",
+                Password = "132"
+            });
+
+            var ssoLoginResult = API.SSOLogin.Request(new
+            {
+                unionid = "1"
+            });
         }
     }
 
@@ -26,7 +50,7 @@ namespace ConsoleApp1
         /// <summary>
         /// rbac登陆
         /// </summary>
-        public static APIConfig<string> RbacLogin = new APIConfig<string>("api/rbac/login", HttpMethod.Get);
+        public static APIConfig<string, RbacLogin> RbacLogin = new APIConfig<string, RbacLogin>("api/rbac/login", HttpMethod.Get);
 
 
         /// <summary>
@@ -70,7 +94,7 @@ namespace ConsoleApp1
                     {
                         if (arguments != null)
                         {
-                            Route = BuildGetParasRoute(Route, arguments);
+                            Route = Route.BuildGetParasRoute(arguments);
                         }
 
                         results = Route.M5_APIGet<T>();
@@ -88,13 +112,76 @@ namespace ConsoleApp1
             return results;
         }
 
+
+    }
+    /// <summary>
+    /// API路由配置 input重载
+    /// </summary>
+    /// <typeparam name="T">API请求对象</typeparam>
+    public class APIConfig<T, TInput>
+    {
+        public APIConfig(string route, HttpMethod method)
+        {
+            Route = route;
+            Method = method;
+        }
+        /// <summary>
+        /// 请求路由
+        /// </summary>
+        private string Route { get; set; }
+
+        /// <summary>
+        /// 请求方式
+        /// </summary>
+        private HttpMethod Method { get; set; }
+
+        /// <summary>
+        /// API请求
+        /// </summary>
+        /// <param name="arguments"></param>
+        /// <returns></returns>
+        public Result<T> Request(TInput arguments = default(TInput))
+        {
+            var results = default(Result<T>);
+            switch (Method)
+            {
+                case HttpMethod.Get:
+                    {
+                        if (arguments != null)
+                        {
+                            Route = Route.BuildGetParasRoute(arguments);
+                        }
+
+                        results = Route.M5_APIGet<T>();
+
+                        break;
+                    }
+                case HttpMethod.Post:
+                    {
+                        results = Route.M5_APIPost<T>(arguments);
+                        break;
+                    }
+
+            }
+
+            return results;
+        }
+
+
+    }
+
+    /// <summary>
+    /// API路由配置扩展方法
+    /// </summary>
+    public static class APIConfigExtensions
+    {
         /// <summary>
         /// 生成get 路由参数
         /// </summary>
         /// <param name="route"></param>
         /// <param name="arguments"></param>
         /// <returns></returns>
-        private string BuildGetParasRoute(string route, object arguments)
+        public static string BuildGetParasRoute(this string route, object arguments)
         {
             StringBuilder urlParas = new StringBuilder("");
 
@@ -102,7 +189,7 @@ namespace ConsoleApp1
             foreach (var item in paras)
             {
                 string key = item.Name;
-                string value = TryParseString(item.GetValue(arguments));
+                string value = item.GetValue(arguments).TryParseString();
                 urlParas.AppendFormat("&{0}={1}", key, value);
             }
 
@@ -121,7 +208,7 @@ namespace ConsoleApp1
         /// </summary>
         /// <param name="val"></param>
         /// <returns></returns>
-        private string TryParseString(object val)
+        public static string TryParseString(this object val)
         {
             if (val == null)
             {
