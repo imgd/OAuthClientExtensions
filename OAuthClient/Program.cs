@@ -1,8 +1,6 @@
 ﻿using ClassLibrary1;
 using Galaxy.Mercury.OAuthClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace ConsoleApp1
@@ -40,6 +38,7 @@ namespace ConsoleApp1
                 unionid = "1"
             });
         }
+
     }
 
     /// <summary>
